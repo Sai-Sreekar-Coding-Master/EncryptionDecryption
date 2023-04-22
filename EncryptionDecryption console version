@@ -1,0 +1,50 @@
+char="!,#'$%&'()*+- ./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_abcdefghijklmnoqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·"
+orginLetters = [*char]
+codeLetters = ['¡', 'P', 'Š', '7', 'D', 'N', '^', 'V', ';', '¦', '²', 'y', '’', '°', '¯', '—', 'o', '}', '‹', 'x', '£', 'X', '±', '6', '|', 'e', '…', '®', '‚', '\\', 'Y', 'Œ', '[', '˜', '?', 'w', 'a', '_', 'k', '9', 'W', 'U', '¤', 'z', '+', '„', 'b', '#', '(', 'A', "'", '‡', 'H', 'g', '3', 'G', '.', '©', 'd', '%', 'ƒ', 'l', ']', 'ˆ', ',', '0', 'Ž', 'O', '2', "'", '§', 'K', '>', 'œ', '™', '{', '$', 'E', '@', 'r', '!', 'j', 'L', '/', 'T', 'S', 'c', 'ž', '¨', '~', '«', '·', '=', 'š', '*', '¶', '5', 'M', '&', 'ª', ':', 'f', 'm', '¥', 'u', '‘', 'h', '-', '€', '‰', 's', '–', '´', '1', '“', 'µ', '¢', 'q', 'F', 'Ÿ', 'n', '4', '¬', 'Z', '”', '›', 'B', 't', 'C', 'Q', 'R', 'i', '³', '<', '•', 'v', 'I', '8', 'J', ')', '†']
+Encryption = dict(zip(orginLetters,codeLetters))
+Decryption = dict(zip(codeLetters,orginLetters))
+listE=[]
+listD=[]
+
+def encrypt():
+    message=input('Enter what to encrypt:')
+    keys=[*message]
+    for key in keys:
+        if key in Encryption:
+            value = Encryption[key]
+            listE.append(value)
+        else:
+            print("key not existed")
+
+def decrypt():
+    message = input('Enter what to decrypt:')
+    keys = [*message]
+    for key in keys:
+        if key in Decryption:
+            value = Decryption[key]
+            listD.append(value)
+        else:
+            print("key not existed")
+
+while True:
+    print("______________________________________________________________________________________________________________________________________________________________")
+    print("                                                                   |Encrypter Decrypter app|")
+    print("___________________________________________________________________|_______________________|__________________________________________________________________")
+    print("(G)etcode,(E)ncrypt,(D)ecrypt,(Q)uit")
+    command=input('Enter command : ').upper()
+    
+    if command =='E':
+        encrypt()
+        print(''.join(listE))
+        listE.clear()
+    elif command =='D':
+        decrypt()
+        print(''.join(listD))
+        listD.clear()
+    elif command =='Q':
+        print('Thank you for using !')
+        break
+    elif command =='G':
+        print(codeLetters)
+    else :
+        print('Please enter command again')
